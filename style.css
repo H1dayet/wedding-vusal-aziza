@@ -59,9 +59,13 @@ h1, h2 { font-weight: 400; text-wrap: balance; }
 /* =================== The scene (fixed) =================== */
 .scene {
   position: fixed; top: 0; bottom: 0; left: 50%; width: var(--col); translate: -50% 0;
-  z-index: var(--z-scene); overflow: hidden; background: var(--ivory-2);
+  z-index: var(--z-scene); overflow: hidden; background: #f5d9d4;   /* = the scene's sky */
 }
-.scene-bg { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; transform: scale(1.14); transform-origin: 50% 62%; }
+/* full width, pinned to the bottom: on tall phones the sky color fills above it, keeping the pavilion below the names */
+.scene-bg {
+  position: absolute; bottom: 0; width: 100%; height: auto; transform: scale(1.14); transform-origin: 50% 62%;
+  -webkit-mask-image: linear-gradient(transparent, #000 10%); mask-image: linear-gradient(transparent, #000 10%);
+}
 .revealing .scene-bg { transform: scale(1); transition: transform 3.4s var(--ease-out) 1.2s; }
 
 .floral-gate {
@@ -72,7 +76,9 @@ h1, h2 { font-weight: 400; text-wrap: balance; }
 .revealing .floral-gate { transform: scale(2.8); opacity: 0; transition: transform 2.2s var(--ease-io) 1.7s, opacity 1.1s ease 2.6s; }
 
 /* =================== Cover: curtains =================== */
-.gate { position: fixed; inset: 0; z-index: var(--z-gate); overflow: hidden; }
+/* velvet backdrop fills the gap under the curtains' swept-up hems, then fades as they part */
+.gate { position: fixed; inset: 0; z-index: var(--z-gate); overflow: hidden; background: var(--wine-950); transition: background-color .9s ease .3s; }
+.gate.open { background-color: transparent; }
 .curtain {
   position: absolute; top: 0; height: 100%; width: 57%;
   object-fit: cover; object-position: 100% 50%;
@@ -95,7 +101,7 @@ h1, h2 { font-weight: 400; text-wrap: balance; }
   background: radial-gradient(ellipse 70% 45% at 50% 50%, oklch(0.18 0.06 5 / .55), transparent 70%);
   transition: opacity .7s ease, scale .9s var(--ease-out);
 }
-.wreath { position: relative; width: min(88vw, 400px); aspect-ratio: 930 / 917; }
+.wreath { position: relative; width: min(88vw, 400px); aspect-ratio: 930 / 920; }
 .wreath > img { width: 100%; height: 100%; }
 .wreath-text { position: absolute; inset: 20%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .cover-names { display: flex; flex-direction: column; font: 400 clamp(3.2rem, min(17vw, 9svh), 4.6rem)/1 var(--script); text-shadow: 0 2px 12px rgb(0 0 0 / .5); }
