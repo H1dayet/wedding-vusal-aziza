@@ -14,7 +14,6 @@ const cap = (s) => s[0].toLocaleUpperCase('az') + s.slice(1);
 // ---- Fill text from CONFIG (textContent only, never innerHTML with user data) ----
 const text = {
   ...C,
-  couple: `${C.groom} & ${C.bride}`,
   initials: `${C.groom[0]}&${C.bride[0]}`,
   dateDots: `${pad(dd)} · ${pad(mo)} · ${y}`,
   dateLong: `${cap(weekday)}, ${dd} ${MONTHS[mo - 1]} ${y}`,

@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/corner-top.webp">
 <link rel="preload" as="image" href="assets/corner-bottom.webp">
 <link rel="preload" as="image" href="assets/scene.webp">
-<link rel="stylesheet" href="style.css?v=4"><!-- bump ?v= on every change so phones skip their cached copy -->
+<link rel="stylesheet" href="style.css?v=5"><!-- bump ?v= on every change so phones skip their cached copy -->
 
 <script>
 // ===== EDIT ONLY THIS BLOCK =====
@@ -44,6 +44,7 @@ const CONFIG = {
   ],
   mapQuery: 'Elux Events Hall, Baku',  // what you'd type into Google Maps (not shown to guests)
   closing: 'Sizin iştirakınız bizim üçün ən gözəl hədiyyədir. Bu xoşbəxt günü sizinlə birlikdə qeyd etməyi səbirsizliklə gözləyirik.',
+  families: 'Abbasov və Kazımlı ailələri',  // signs the closing note
   music: 'assets/music.mp3',            // '' for no music
 };
 </script>
@@ -131,10 +132,13 @@ const CONFIG = {
       <img src="assets/wreath.webp" alt="" loading="lazy">
       <div class="wreath-text">
         <p class="thanks">Təşəkkürlər</p>
-        <p class="sig" data-c="couple"></p>
       </div>
     </div>
-    <p class="closing-note" data-c="closing"></p>
+    <div class="closing-note">
+      <p data-c="closing"></p>
+      <p class="regards">Hörmətlə,</p>
+      <p class="sig" data-c="families"></p>
+    </div>
     <img class="closing-fg" src="assets/foreground-flowers.webp" alt="" loading="lazy">
   </section>
   <footer><span data-c="initials"></span> · <span data-c="dateDots"></span></footer>
@@ -145,6 +149,6 @@ const CONFIG = {
 </button>
 <audio id="audio" loop preload="none"></audio>
 
-<script src="script.js?v=3"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>

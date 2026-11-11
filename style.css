@@ -228,7 +228,8 @@ body:not(.revealed) .scroll-cue { visibility: hidden; }
 .closing-wreath { margin: 0 auto; width: min(88vw, 380px); }
 .closing-wreath .wreath-text { inset: 24% 22%; }
 .thanks { font: 400 clamp(2rem, 9.6vw, 2.6rem)/1.1 var(--script); color: var(--wine-700); white-space: nowrap; }
-.sig { margin-top: 6px; font: 400 1.3rem/1.2 var(--script); color: var(--rose); }
+.regards { margin-top: 14px; font-size: .74rem; font-style: normal; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--rose); padding-left: .24em; }
+.sig { margin-top: 2px; font: 400 2rem/1.2 var(--script); font-style: normal; color: var(--wine-700); }
 .closing-note {
   position: relative; z-index: 1; max-width: 32ch; margin: 18px auto 0; padding: 16px 20px; border-radius: 18px;
   font-style: italic; background: var(--veil); text-wrap: pretty;
