@@ -175,10 +175,24 @@ body:not(.revealed) .scroll-cue { visibility: hidden; }
 
 /* ---------- Paper: a translucent veil so the scene glows through ---------- */
 .paper { background: linear-gradient(180deg, transparent, var(--veil) 140px, var(--veil) calc(100% - 140px), transparent); }
-.greeting { padding-top: 150px; }
-.spray { width: 72%; margin: 0 auto; }
 .verse { max-width: 30ch; margin: 18px auto 0; font-size: 1.4rem; line-height: 1.55; font-style: italic; text-wrap: pretty; }
-.verse .w { display: inline-block; }
+
+/* ---------- Program: host + timeline ---------- */
+.program { padding-top: 150px; }
+.host-label { margin-top: 22px; font-size: .76rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--rose); padding-left: .3em; }
+.host { font: 400 2.7rem/1.2 var(--script); color: var(--wine-700); }
+/* time | dot on the line | act */
+.timeline { --tc: 76px; position: relative; list-style: none; max-width: 320px; margin: 34px auto 0; padding: 0; text-align: left; }
+.timeline::before { content: ''; position: absolute; left: calc(var(--tc) + 14px); top: 14px; bottom: 34px; width: 1px; background: oklch(0.56 0.13 355 / .35); }
+.timeline li { position: relative; display: grid; grid-template-columns: var(--tc) 1fr; column-gap: 28px; align-items: baseline; padding-bottom: 26px; }
+.timeline li::before {
+  content: ''; position: absolute; left: calc(var(--tc) + 9px); top: 9px; width: 11px; height: 11px; border-radius: 50%;
+  background: var(--rose); box-shadow: 0 0 0 4px var(--ivory);
+}
+.timeline time { font: 400 1.65rem/1.1 var(--serif); color: var(--wine-700); text-align: right; font-variant-numeric: lining-nums tabular-nums; }
+.t-title { font-size: .76rem; font-weight: 600; line-height: 1.5; letter-spacing: .2em; text-transform: uppercase; color: var(--rose); }
+.t-who { font: 400 1.95rem/1.15 var(--script); color: var(--ink); }
+.t-title + .t-who { margin-top: 2px; }
 
 /* ---------- Date: wine band ---------- */
 .date { background: oklch(0.27 0.09 5 / .93); color: var(--ivory); margin: 72px 0 40px; }
@@ -243,8 +257,8 @@ footer { position: relative; padding: 22px; text-align: center; font-size: .72re
     .hero-text { animation: fade-up linear both; animation-timeline: view(); animation-range: exit 0% exit 70%; }
     .closing-fg { animation: fg-settle linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; }
     .closing-wreath { animation: bloom linear both; animation-timeline: view(); animation-range: entry 20% entry 100%; }
-    .verse .w { animation: word linear both; animation-timeline: view(); animation-range: cover calc(var(--i) * 1.4%) cover calc(18% + var(--i) * 1.4%); }
-    .spray, .title { animation: grow-center linear both; animation-timeline: view(); animation-range: entry 10% cover 35%; }
+    .timeline li { animation: rise-in linear both; animation-timeline: view(); animation-range: entry 0% entry 90%; }
+    .title { animation: grow-center linear both; animation-timeline: view(); animation-range: entry 10% cover 35%; }
     .the-day path { stroke-dasharray: 1; animation: draw linear both; animation-timeline: view(); animation-range: entry 40% cover 55%; }
     .event .e-time { animation: settle linear both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
   }
@@ -254,7 +268,7 @@ footer { position: relative; padding: 22px; text-align: center; font-size: .72re
 @keyframes swag-lift { to { transform: translateY(-40%); opacity: .2; } }
 @keyframes fade-up { to { transform: translateY(-60px); opacity: 0; } }
 @keyframes bloom { from { scale: .78; opacity: .1; rotate: -8deg; } to { scale: 1; opacity: 1; rotate: 0deg; } }
-@keyframes word { from { opacity: .12; filter: blur(3px); } to { opacity: 1; filter: none; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(18px); } }
 @keyframes grow-center { from { clip-path: inset(0 50% 0 50%); opacity: 0; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
 @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes settle { from { letter-spacing: .2em; opacity: 0; } to { letter-spacing: -.02em; opacity: 1; } }

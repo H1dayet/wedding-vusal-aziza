@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/corner-top.webp">
 <link rel="preload" as="image" href="assets/corner-bottom.webp">
 <link rel="preload" as="image" href="assets/scene.webp">
-<link rel="stylesheet" href="style.css?v=3"><!-- bump ?v= on every change so phones skip their cached copy -->
+<link rel="stylesheet" href="style.css?v=4"><!-- bump ?v= on every change so phones skip their cached copy -->
 
 <script>
 // ===== EDIT ONLY THIS BLOCK =====
@@ -31,7 +31,14 @@ const CONFIG = {
   groom: 'Vüsal',
   date: '2026-11-27T18:00:00+04:00',   // ISO, with your timezone offset
   timeZone: 'Asia/Baku',
-  greeting: 'İki ürək, bir əhd. Əbədiyyətimizin başladığı bu xoşbəxt günü bizimlə birlikdə qeyd etməyə sizi böyük sevinclə dəvət edirik.',
+  host: 'Zamiq Hüseynov',               // gecənin əsas aparıcısı
+  program: [                            // title and/or who; either can be left out
+    { time: '19:00', title: 'Təntənəli açılış', who: 'İlkin Dövlətov' },
+    { time: '20:30', who: 'Eyyub Yaqubov' },
+    { time: '22:00', who: 'Aygün Kazımova' },
+    { time: '22:30', who: 'Elvin Mizəzadə' },
+    { time: '23:00', title: 'Tort mərasimi' },
+  ],
   events: [
     { title: 'Toy mərasimi', time: '18:00', place: 'Elux Events Hall', address: 'Bakı, Azərbaycan' },
   ],
@@ -81,14 +88,16 @@ const CONFIG = {
       </h1>
     </div>
     <img class="hero-fg" src="assets/foreground-flowers.webp" alt="">
-    <a class="scroll-cue" href="#greeting">Aşağı sürüşdürün<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+    <a class="scroll-cue" href="#program">Aşağı sürüşdürün<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
   </section>
 
   <div class="paper">
-    <!-- Greeting -->
-    <section class="greeting" id="greeting">
-      <img class="spray" src="assets/florals-spray.webp" alt="" loading="lazy">
-      <p class="verse" id="verse" data-c="greeting"></p>
+    <!-- Program: host + timeline -->
+    <section class="program" id="program">
+      <h2 class="title">Gecənin proqramı</h2>
+      <p class="host-label">Gecənin əsas aparıcısı</p>
+      <p class="host" data-c="host"></p>
+      <ol class="timeline" id="timeline"></ol>
     </section>
 
     <!-- Date -->
@@ -136,6 +145,6 @@ const CONFIG = {
 </button>
 <audio id="audio" loop preload="none"></audio>
 
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>

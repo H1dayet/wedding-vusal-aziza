@@ -28,15 +28,22 @@ document.querySelectorAll('[data-c]').forEach((el) => {
 const guest = new URLSearchParams(location.search).get('to');
 if (guest) $('#guest').textContent = guest.slice(0, 60);
 
-// Greeting: one span per word so each can light up as it scrolls in (see .verse .w in CSS)
-const verse = $('#verse');
-if (verse) verse.replaceChildren(...verse.textContent.split(' ').flatMap((w, i) => {
-  const s = document.createElement('span');
-  s.className = 'w';
-  s.style.setProperty('--i', i);
-  s.textContent = w;
-  return [s, ' '];
-}));
+// ---- Program timeline ----
+C.program.forEach(({ time, title, who }) => {
+  const li = document.createElement('li');
+  const t = document.createElement('time');
+  t.textContent = time;
+  const box = document.createElement('div');
+  for (const [cls, val] of [['t-title', title], ['t-who', who]]) {
+    if (!val) continue;
+    const p = document.createElement('p');
+    p.className = cls;
+    p.textContent = val;
+    box.append(p);
+  }
+  li.append(t, box);
+  $('#timeline').append(li);
+});
 
 // ---- Opening: curtains part, camera flies through the floral arch into the scene ----
 const gate = $('#gate');
