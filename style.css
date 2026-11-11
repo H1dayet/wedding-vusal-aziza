@@ -145,9 +145,20 @@ body:not(.revealed) .hero-text { visibility: hidden; }   /* written in after the
   position: absolute; bottom: -90px; left: 50%; width: 150%; max-width: none; translate: -50% 0; pointer-events: none;
   -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 96%); mask-image: linear-gradient(180deg, #000 62%, transparent 96%);
 }
-.scroll-line { position: absolute; left: 50%; bottom: 20px; width: 1px; height: 48px; translate: -50% 0; background: oklch(0.26 0.06 5 / .2); overflow: hidden; }
-.scroll-line::after { content: ''; position: absolute; inset: 0; background: var(--wine-700); animation: scrollcue 2.2s var(--ease-io) infinite; }
-@keyframes scrollcue { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
+/* scroll cue: frosted pill over the foreground flowers, appears once the names are written; tap = smooth scroll */
+.scroll-cue {
+  position: absolute; left: 50%; bottom: max(22px, env(safe-area-inset-bottom)); translate: -50% 0;
+  display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 9px 18px 5px; border-radius: 999px;
+  font-size: .68rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; padding-left: calc(18px + .24em);
+  color: var(--wine-700); text-decoration: none; white-space: nowrap;
+  background: oklch(0.975 0.008 60 / .8); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px -8px oklch(0.26 0.06 5 / .4);
+}
+.scroll-cue svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; animation: nudge 1.6s var(--ease-io) infinite; }
+@keyframes nudge { 50% { transform: translateY(4px); } }
+body:not(.revealed) .scroll-cue { visibility: hidden; }
+.revealed .scroll-cue { animation: rise 1s var(--ease-out) 3s both; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 /* names are written in, like ink, once the scene is revealed */
 .n1, .n2 {
@@ -250,7 +261,7 @@ footer { position: relative; padding: 22px; text-align: center; font-size: .72re
 
 /* =================== Reduced motion =================== */
 @media (prefers-reduced-motion: reduce) {
-  .petals, .scroll-line { display: none; }
+  .petals { display: none; }
   .music.playing, .revealed * { animation: none !important; }
   .gate, .gate *, .floral-gate, .scene-bg { transition-duration: .2s !important; transition-delay: 0s !important; }
 }

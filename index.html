@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/corner-top.webp">
 <link rel="preload" as="image" href="assets/corner-bottom.webp">
 <link rel="preload" as="image" href="assets/scene.webp">
-<link rel="stylesheet" href="style.css?v=2"><!-- bump ?v= on every change so phones skip their cached copy -->
+<link rel="stylesheet" href="style.css?v=3"><!-- bump ?v= on every change so phones skip their cached copy -->
 
 <script>
 // ===== EDIT ONLY THIS BLOCK =====
@@ -81,12 +81,12 @@ const CONFIG = {
       </h1>
     </div>
     <img class="hero-fg" src="assets/foreground-flowers.webp" alt="">
-    <span class="scroll-line" aria-hidden="true"></span>
+    <a class="scroll-cue" href="#greeting">Aşağı sürüşdürün<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
   </section>
 
   <div class="paper">
     <!-- Greeting -->
-    <section class="greeting">
+    <section class="greeting" id="greeting">
       <img class="spray" src="assets/florals-spray.webp" alt="" loading="lazy">
       <p class="verse" id="verse" data-c="greeting"></p>
     </section>
