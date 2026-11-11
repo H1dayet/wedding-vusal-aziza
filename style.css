@@ -178,7 +178,6 @@ body:not(.revealed) .scroll-cue { visibility: hidden; }
 .verse { max-width: 30ch; margin: 18px auto 0; font-size: 1.4rem; line-height: 1.55; font-style: italic; text-wrap: pretty; }
 
 /* ---------- Program: host + timeline ---------- */
-.program { padding-top: 150px; }
 .host-label { margin-top: 22px; font-size: .76rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--rose); padding-left: .3em; }
 .host { font: 400 2.7rem/1.2 var(--script); color: var(--wine-700); }
 /* time | dot on the line | act */
@@ -191,7 +190,7 @@ body:not(.revealed) .scroll-cue { visibility: hidden; }
 }
 .timeline time { font: 400 1.65rem/1.1 var(--serif); color: var(--wine-700); text-align: right; font-variant-numeric: lining-nums tabular-nums; }
 .t-title { font-size: .76rem; font-weight: 600; line-height: 1.5; letter-spacing: .2em; text-transform: uppercase; color: var(--rose); }
-.t-who { font: 400 1.95rem/1.15 var(--script); color: var(--ink); }
+.t-who { font: 400 1.5rem/1.2 var(--script); color: var(--ink); }
 .t-title + .t-who { margin-top: 2px; }
 
 /* ---------- Date: wine band ---------- */

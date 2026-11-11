@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/corner-top.webp">
 <link rel="preload" as="image" href="assets/corner-bottom.webp">
 <link rel="preload" as="image" href="assets/scene.webp">
-<link rel="stylesheet" href="style.css?v=5"><!-- bump ?v= on every change so phones skip their cached copy -->
+<link rel="stylesheet" href="style.css?v=6"><!-- bump ?v= on every change so phones skip their cached copy -->
 
 <script>
 // ===== EDIT ONLY THIS BLOCK =====
@@ -89,20 +89,12 @@ const CONFIG = {
       </h1>
     </div>
     <img class="hero-fg" src="assets/foreground-flowers.webp" alt="">
-    <a class="scroll-cue" href="#program">Aşağı sürüşdürün<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+    <a class="scroll-cue" href="#date">Aşağı sürüşdürün<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
   </section>
 
   <div class="paper">
-    <!-- Program: host + timeline -->
-    <section class="program" id="program">
-      <h2 class="title">Gecənin proqramı</h2>
-      <p class="host-label">Gecənin əsas aparıcısı</p>
-      <p class="host" data-c="host"></p>
-      <ol class="timeline" id="timeline"></ol>
-    </section>
-
     <!-- Date -->
-    <section class="date">
+    <section class="date" id="date">
       <h2 class="title">Tarixi yadda saxlayın</h2>
       <div class="cal">
         <p class="cal-head" data-c="monthYear"></p>
@@ -123,6 +115,14 @@ const CONFIG = {
       <div id="events"></div>
       <div class="map"><iframe id="map" title="Məkanın xəritəsi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
       <a class="btn" id="directions" target="_blank" rel="noopener">Marşrutu göstər</a>
+    </section>
+
+    <!-- Program: host + timeline -->
+    <section class="program" id="program">
+      <h2 class="title">Gecənin proqramı</h2>
+      <p class="host-label">Gecənin əsas aparıcısı</p>
+      <p class="host" data-c="host"></p>
+      <ol class="timeline" id="timeline"></ol>
     </section>
   </div>
 
